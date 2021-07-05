@@ -1,31 +1,34 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Raiting, RatingValueType} from './Raiting';
-import { AcardionControllNO} from './NoControlledAcardion/AcardionControllNO';
-import { OnOff } from './onOff/OnOff';
-import OncotrolledRaiting from './Oncontrolled/OncotrolledRaiting';
+import {OnOff} from './onOff/OnOff';
+import {ControlledRaiting} from './Oncontrolled/ControlledRaiting';
 import OnAcardionControll from "./NoControlledAcardion/AcardionONControll";
-import { UnControledOnOff } from './onOff/UnControledOnOff';
-
 
 
 function App() {
 
     let [raitingValue, setStateValue] = useState<RatingValueType>(0)
-    let [AcardionNew, setAcardionNew] = useState<boolean>(true)
-   let [UnContrilledOnOf, setUnControlled] = useState<boolean>(true) // control is famaly
+    let [acardionNew, setAcardionNew] = useState<boolean>(true)
+    let [unContrilledOnOf, setUnControlled] = useState<boolean>(true) // control is famaly
+    let [value, setValue] = useState(0)
+    const acardionWrapper = () => {
+        setAcardionNew(!acardionNew)
+    }
+    const unOfControllWrapper = () => {
+        setUnControlled(!unContrilledOnOf)
+    }
 
     return (
         <div className="App">
-            <OnAcardionControll onChange={() => {setAcardionNew(!AcardionNew)}} colapsed={AcardionNew} titleValue={'calbackControll'}/> {/*контроль снаружи компоненты*/}
-            <AcardionControllNO titleValue={'Menu'}/> {/* контроль внутри компоненты*/}
+            <OnAcardionControll onChange={acardionWrapper} colapsed={acardionNew} titleValue={'calbackControll'}/>
+
             <input type="text" checked={true}/>
-            <OncotrolledRaiting/>
+            <ControlledRaiting value={value} setValue={setValue}/>
 
-            <OnOff onChange={() => {setUnControlled(!UnContrilledOnOf)}} UnContrilledOnOf={UnContrilledOnOf}/>
+            <OnOff onChange={unOfControllWrapper} UnContrilledOnOf={unContrilledOnOf}/>
+
             <Raiting value={raitingValue} onClick={setStateValue}/>
-
-            <UnControledOnOff onChange={setUnControlled}/> {UnContrilledOnOf.toString()}
 
 
         </div>

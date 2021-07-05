@@ -1,16 +1,18 @@
 
 
-type mannType = {
-    old:string
-    color:string
- }
- test('what is color in mAn', () => {
-     const man:mannType  = {
-         old:'Yes',
-         color:'blue'
-     }
-     let woman = man
-     woman.color = 'red'
-     expect(woman.color).toBe('red')
-     }
- )
+type UserType = {
+    name:string
+    age:number
+}
+function icrAseAge (user:UserType) {
+    user.age++
+}
+test('test User age', () => {
+    const user = {
+        name:'nick',
+        age:22
+    }
+    icrAseAge(user)
+
+    expect(users['1']).toEqual( {id:1,name:'Nastya'})
+})

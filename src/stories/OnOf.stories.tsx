@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import {OnOff, PropsType} from "./OnOff";
+import {OnOff, PropsType} from "../onOff/OnOff";
 
 
 export default {
