@@ -45,7 +45,7 @@ function AcardionBody(props: BodyType) {
             {
                 props.items.map((i, index) => <li onClick={ () => {
                     props.changeClick(i.value)
-                }} key={index}>{i.name}</li>) // не добавил name --- Касяк
+                }} key={index}>{i.name}</li>) // не добавил name -rsxКасяк
             }
         </ul>
     </div>)
